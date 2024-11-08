@@ -1,7 +1,7 @@
 import json
 import asyncio
 from selenium import webdriver
-from selenium.webdriver.edge.options import Options
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -11,20 +11,20 @@ link = 'https://en.tutiempo.net/climate/{month}-{year}/ws-488200.html'
 filename = "air_quality.json"
 span_dict = {}
 
-edge_options = Options()
-edge_options.add_argument("--headless")
-edge_options.add_argument("--disable-gpu")  
-edge_options.add_argument("--no-sandbox")  
-edge_options.add_argument("--disable-extensions")
-edge_options.add_argument("--disable-javascript") 
-edge_options.add_argument("--disable-dev-shm-usage")
-edge_options.add_argument("--disable-software-rasterizer")
-edge_options.add_argument("--disable-features=VizDisplayCompositor")
-edge_options.add_argument("--start-maximized")
-edge_options.add_argument("--disable-infobars")
+chrome_options = Options()
+chrome_options.add_argument("--headless")
+chrome_options.add_argument("--disable-gpu")  
+chrome_options.add_argument("--no-sandbox")  
+chrome_options.add_argument("--disable-extensions")
+chrome_options.add_argument("--disable-javascript") 
+chrome_options.add_argument("--disable-dev-shm-usage")
+chrome_options.add_argument("--disable-software-rasterizer")
+chrome_options.add_argument("--disable-features=VizDisplayCompositor")
+chrome_options.add_argument("--start-maximized")
+chrome_options.add_argument("--disable-infobars")
 
 
-driver = webdriver.Chrome(options=edge_options)
+driver = webdriver.Chrome(options=chrome_options)
 
 with open(filename, "r", encoding="utf-8") as f:
     existing_data = json.load(f)
