@@ -65,7 +65,7 @@ async def crawl_data(month, year):
     slide_data = []
     rows = table[0].find_all('tr')
 
-    for i in range(2, len(rows) - 2):
+    for i in range(1, len(rows) - 2):
         row = rows[i]
         cols = row.find_all('td')
         spans = row.find_all('span')
