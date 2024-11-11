@@ -26,9 +26,8 @@ def main():
                 if datetime.fromtimestamp(dt["dt"]).strftime('%d/%m/%Y')==pm2_5['datetime']:
                     count += float(dt['components'].get("pm2_5","0"))
                     ind += 1
-                    break
             if(ind!=0):
-                pm2_5['pm2.5'] = float(count/ind)
+                pm2_5['pm2.5'] = round(float(count/ind),3)
                 count = 0
                 ind = 0
             else:
